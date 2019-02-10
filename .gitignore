@@ -1,0 +1,17 @@
+#
+# Compiled binaries.
+#
+bin/**
+
+#
+# Visual Studio files.
+#
+.vs/**
+*.VC.db
+*.VC.opendb
+*.vcxproj.user
+
+#
+# VS Code files.
+#
+.vscode/**

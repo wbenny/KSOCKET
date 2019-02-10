@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{01B84E09-7D4F-4415-95AD-C9291497D28C}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ksocket", "src\ksocket\ksocket.vcxproj", "{46A74761-6CFA-41AF-A536-47F08E2C7B48}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46A74761-6CFA-41AF-A536-47F08E2C7B48}.Debug|x64.ActiveCfg = Debug|x64
+		{46A74761-6CFA-41AF-A536-47F08E2C7B48}.Debug|x64.Build.0 = Debug|x64
+		{46A74761-6CFA-41AF-A536-47F08E2C7B48}.Debug|x86.ActiveCfg = Debug|Win32
+		{46A74761-6CFA-41AF-A536-47F08E2C7B48}.Debug|x86.Build.0 = Debug|Win32
+		{46A74761-6CFA-41AF-A536-47F08E2C7B48}.Release|x64.ActiveCfg = Release|x64
+		{46A74761-6CFA-41AF-A536-47F08E2C7B48}.Release|x64.Build.0 = Release|x64
+		{46A74761-6CFA-41AF-A536-47F08E2C7B48}.Release|x86.ActiveCfg = Release|Win32
+		{46A74761-6CFA-41AF-A536-47F08E2C7B48}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2F42D07-8CF5-40C5-924F-6EAB82D9ABF0}
+	EndGlobalSection
+EndGlobal
