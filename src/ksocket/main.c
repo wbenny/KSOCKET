@@ -55,6 +55,7 @@ DriverEntry(
     result = connect(sockfd, res->ai_addr, (int)res->ai_addrlen);
     result = send(sockfd, send_buffer, sizeof(send_buffer), 0);
     result = recv(sockfd, recv_buffer, sizeof(recv_buffer), 0);
+    recv_buffer[sizeof(recv_buffer) - 1] = '\0';
 
     DebuggerPrint("TCP client:\n%s\n", recv_buffer);
 
@@ -91,7 +92,8 @@ DriverEntry(
     socklen_t addrlen = sizeof(addr);
     int client_sockfd = accept(server_sockfd, (struct sockaddr*)&addr, &addrlen);
 
-    result = recv(client_sockfd, recv_buffer, sizeof(recv_buffer), 0);
+    result = recv(client_sockfd, recv_buffer, sizeof(recv_buffer) - 1, 0);
+    recv_buffer[sizeof(recv_buffer) - 1] = '\0';
 
     DebuggerPrint("TCP server:\n%s\n", recv_buffer);
 
