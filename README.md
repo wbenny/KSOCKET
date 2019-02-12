@@ -11,7 +11,7 @@ isn't a very good idea.  However, sometimes, you're just too interested _**how i
 
 ### What does it do?
 
-It makes a HTTP GET request to the `httpbin.com/uuid` and prints the response
+It makes a HTTP GET request to the `httpbin.org/uuid` and prints the response
 to the debugger.  Then, it creates a TCP server listening on port 9095 and waits
 for a client.  When the client connects, it waits for a single message, prints
 it to the debugger and then responds with `Hello from WSK!` and closes both
