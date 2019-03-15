@@ -3,6 +3,10 @@
 #include <wsk.h>
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef int       socklen_t;
 typedef intptr_t  ssize_t;
 
@@ -28,3 +32,7 @@ int recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *src_
 int closesocket(int sockfd);
 
 #define socket  socket_connection
+
+#ifdef __cplusplus
+}
+#endif

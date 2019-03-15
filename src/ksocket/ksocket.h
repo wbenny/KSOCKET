@@ -2,6 +2,10 @@
 #include <ntddk.h>
 #include <wsk.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct _KSOCKET KSOCKET, *PKSOCKET;
 
 NTSTATUS
@@ -155,3 +159,7 @@ KsRecvFrom(
   _In_ ULONG Flags,
   _In_ PSOCKADDR RemoteAddress
   );
+
+#ifdef __cplusplus
+}
+#endif
