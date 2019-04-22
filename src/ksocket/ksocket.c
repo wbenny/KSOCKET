@@ -659,7 +659,7 @@ KsSendRecv(
   __except (EXCEPTION_EXECUTE_HANDLER)
   {
     Status = STATUS_ACCESS_VIOLATION;
-    goto Exit;
+    goto Error;
   }
 
   //
@@ -702,11 +702,13 @@ KsSendRecv(
     *Length = (ULONG)Socket->AsyncContext.Irp->IoStatus.Information;
   }
 
-Exit:
   //
   // Free the MDL.
   //
 
+  MmUnlockPages(WskBuffer.Mdl);
+
+Error:
   IoFreeMdl(WskBuffer.Mdl);
   return Status;
 }
@@ -740,7 +742,7 @@ KsSendRecvUdp(
   __except (EXCEPTION_EXECUTE_HANDLER)
   {
     Status = STATUS_ACCESS_VIOLATION;
-    goto Exit;
+    goto Error;
   }
 
   //
@@ -790,11 +792,13 @@ KsSendRecvUdp(
     *Length = (ULONG)Socket->AsyncContext.Irp->IoStatus.Information;
   }
 
-Exit:
   //
   // Free the MDL.
   //
 
+  MmUnlockPages(WskBuffer.Mdl);
+
+Error:
   IoFreeMdl(WskBuffer.Mdl);
   return Status;
 }
