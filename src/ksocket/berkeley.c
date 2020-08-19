@@ -231,7 +231,14 @@ KspUtilAddrInfoExToAddrInfo(
   // Copy address.
   //
 
-  Result->ai_addr = AddrInfoEx->ai_addr;
+  //Result->ai_addr = AddrInfoEx->ai_addr;
+  Result->ai_addr = ExAllocatePoolWithTag(PagedPool, sizeof(struct sockaddr), MEMORY_TAG);
+  if (Result->ai_addr == NULL)
+  {
+    Status = STATUS_INSUFFICIENT_RESOURCES;
+    goto Error1;
+  }
+  memcpy(Result->ai_addr, AddrInfoEx->ai_addr, sizeof(struct sockaddr));
 
   //
   // Copy the next structure (recursively).
@@ -289,6 +296,14 @@ KspUtilFreeAddrInfo(
     ANSI_STRING CanonicalName;
     RtlInitAnsiString(&CanonicalName, AddrInfo->ai_canonname);
     RtlFreeAnsiString(&CanonicalName);
+  }
+  
+  //
+  // Free the ai_addr buffer.
+  //
+
+  if (AddrInfo->ai_addr) {
+    ExFreePoolWithTag(AddrInfo->ai_addr, MEMORY_TAG);
   }
 
   //
