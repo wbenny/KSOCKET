@@ -47,7 +47,7 @@ DriverEntry(
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
 
-    struct addrinfo *res;
+    struct addrinfo *res = NULL;
     result = getaddrinfo("httpbin.org", "80", &hints, &res);
 
     int sockfd;
@@ -59,6 +59,9 @@ DriverEntry(
 
     DebuggerPrint("TCP client:\n%s\n", recv_buffer);
 
+    if (res) {
+      freeaddrinfo(res);
+    }
     closesocket(sockfd);
   }
 
