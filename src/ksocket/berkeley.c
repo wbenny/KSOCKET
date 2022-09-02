@@ -7,8 +7,8 @@
 
 #define MEMORY_TAG            ' bsK'
 #define SOCKETFD_MAX          128
-#define TO_SOCKETFD(index)    ((index % SOCKETFD_MAX)  + 1)
-#define FROM_SOCKETFD(sockfd) ((sockfd)                - 1)
+#define TO_SOCKETFD(index)    ((index % SOCKETFD_MAX))
+#define FROM_SOCKETFD(sockfd) ((sockfd)              )
 
 //////////////////////////////////////////////////////////////////////////
 // Function prototypes.
